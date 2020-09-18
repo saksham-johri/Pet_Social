@@ -9,8 +9,8 @@ import TimeLine from './Screen/Timeline/Timeline'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Register />
-    {/* <Login /> */}
+    {/* <Register /> */}
+    <Login />
     {/* <TimeLine /> */}
   </React.StrictMode>,
   document.getElementById("root")
