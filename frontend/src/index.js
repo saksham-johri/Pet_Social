@@ -3,15 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 // import App from './App';
 import * as serviceWorker from "./serviceWorker";
-import Register from "./Components/Register/Register";
-import Login from "./Components/Login/Login";
-import TimeLine from './Components/Timeline/Timeline'
+import Register from "./Screen/Register/Register";
+import Login from "./Screen/Login/Login";
+import TimeLine from './Screen/Timeline/Timeline'
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Register /> */}
+    <Register />
     {/* <Login /> */}
-    <TimeLine />
+    {/* <TimeLine /> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
