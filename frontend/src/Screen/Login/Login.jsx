@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import WelcomeToPPL from "../../Components/WelcomeToPPL";
-import LoginForm from  '../../Components/LoginForm'
+import LoginForm from  '../../Components/LoginForm/LoginForm'
 
 export default class Login extends Component {
   render() {

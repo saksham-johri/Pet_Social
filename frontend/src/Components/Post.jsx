@@ -1,20 +1,24 @@
 import React from "react";
 
 export default function Post() {
+  const title = "User Interface PSD Source files Web Designing for web";
+  const user = "Steave Waugh";
+  const numOfLikes = 0;
+  const numOfComments = 4;
+  const category = "Cats";
+
   return (
     <>
       <div className="contnt_2">
         <div className="div_a">
-          <div className="div_title">
-            User Interface PSD Source files Web Designing for web
-          </div>
+          <div className="div_title">{title}</div>
           <div className="btm_rgt">
-            <div className="btm_arc">Cats</div>
+            <div className="btm_arc">{category}</div>
           </div>
           <div className="div_top">
             <div className="div_top_lft">
               <img src="images/img_6.png" />
-              Steave Waugh
+              {user}
             </div>
             <div className="div_top_rgt">
               <span className="span_date">02 Jan 2014</span>
@@ -48,7 +52,7 @@ export default function Post() {
                     <span className="btn_icon">
                       <img src="images/icon_003.png" alt="share" />
                     </span>
-                    0 Likes
+                    {numOfLikes} Likes
                   </a>
                 </li>
                 <li>
@@ -56,7 +60,7 @@ export default function Post() {
                     <span className="btn_icon">
                       <img src="images/icon_004.png" alt="share" />
                     </span>
-                    4 Comments
+                    {numOfComments} Comments
                   </a>
                 </li>
               </ul>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
-import CreateAAccountForm from "../../Components/CreateAAccountForm";
+import CreateAccountForm from "../../Components/CreateAccountForm/CreateAccountForm";
 import WelcomeToPPL from "../../Components/WelcomeToPPL";
 
 export default class Register extends Component {
@@ -13,7 +13,7 @@ export default class Register extends Component {
         <Header />
         <div className="container">
           <div className="content">
-            <CreateAAccountForm />
+            <CreateAccountForm />
             <WelcomeToPPL />
           </div>
         </div>
