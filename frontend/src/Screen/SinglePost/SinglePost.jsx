@@ -34,7 +34,7 @@ export default function SinglePost() {
                 </li>
               </ul>
               <div className="view_div">
-                <a href="#">View more</a>
+                <a>View more</a>
               </div>
             </div>
           </div>
