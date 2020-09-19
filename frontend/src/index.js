@@ -1,17 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-// import App from './App';
+import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import Register from "./Screen/Register/Register";
-import Login from "./Screen/Login/Login";
-import TimeLine from './Screen/Timeline/Timeline'
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Register /> */}
-    {/* <Login /> */}
-    <TimeLine />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
