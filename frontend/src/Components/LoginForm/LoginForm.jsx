@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Base from "./LoginFormBase";
 
 export default class LoginForm extends Base {
@@ -44,8 +45,10 @@ export default class LoginForm extends Base {
               </ul>
             </form>
             <div className="addtnal_acnt">
-              I do not have any account yet.
-              <a>Create My Account Now !</a>
+              I don't have any account yet.
+              <Link to='/signup'>
+              Create My Account Now !
+              </Link>
             </div>
           </div>
         </div>

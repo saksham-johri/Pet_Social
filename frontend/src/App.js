@@ -12,8 +12,8 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Login} />
-          <Route path='/signup' exact component={Register} />
-          <Route path='/timeline' exact component={Timeline} />
+          <Route path="/signup" exact component={Register} />
+          <Route path="/timeline" exact component={Timeline} />
         </Switch>
       </Router>
     </>
