@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Base from "./LoginFormBase";
 
-export default class LoginForm extends Base {
+class LoginForm extends Base {
   render() {
     return (
       <>
@@ -46,9 +46,7 @@ export default class LoginForm extends Base {
             </form>
             <div className="addtnal_acnt">
               I don't have any account yet.
-              <Link to='/signup'>
-              Create My Account Now !
-              </Link>
+              <Link to="/signup">Create My Account Now !</Link>
             </div>
           </div>
         </div>
@@ -56,3 +54,5 @@ export default class LoginForm extends Base {
     );
   }
 }
+
+export default withRouter(LoginForm);

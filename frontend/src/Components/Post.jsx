@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Post() {
   const title = "User Interface PSD Source files Web Designing for web";
@@ -6,6 +7,11 @@ export default function Post() {
   const numOfLikes = 0;
   const numOfComments = 4;
   const category = "Cats";
+  const img = "images/lft_img.png";
+
+  const test = () => {
+    console.log("OPEN!!");
+  };
 
   return (
     <>
@@ -26,37 +32,37 @@ export default function Post() {
             </div>
           </div>
           <div className="div_image">
-            <img src="images/lft_img.png" alt="pet" />
+            <img src={img} alt="pet" onClick={test} />
           </div>
           <div className="div_btm">
             <div className="btm_list">
               <ul>
-                <li>
-                  <a href="#">
+                <li onClick={test}>
+                  <Link to="/">
                     <span className="btn_icon">
                       <img src="images/icon_001.png" alt="share" />
                     </span>
                     Share
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a href="#">
+                <li onClick={test}>
+                  <a>
                     <span className="btn_icon">
                       <img src="images/icon_002.png" alt="share" />
                     </span>
                     Flag
                   </a>
                 </li>
-                <li>
-                  <a href="#">
+                <li onClick={test}>
+                  <a>
                     <span className="btn_icon">
                       <img src="images/icon_003.png" alt="share" />
                     </span>
                     {numOfLikes} Likes
                   </a>
                 </li>
-                <li>
-                  <a href="#">
+                <li onClick={test}>
+                  <a>
                     <span className="btn_icon">
                       <img src="images/icon_004.png" alt="share" />
                     </span>

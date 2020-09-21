@@ -5,7 +5,9 @@ import WelcomeToPPL from "../../Components/WelcomeToPPL";
 import LoginForm from  '../../Components/LoginForm/LoginForm'
 
 export default class Login extends Component {
+  
   render() {
+    // console.log(this.props);
     return (
       <div>
         <meta charSet="utf-8" />

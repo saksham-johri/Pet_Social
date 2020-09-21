@@ -50,6 +50,7 @@ app.post("/sign_up", (req, res) => {
 });
 
 app.post("/sign_in", (req, res) => {
+  console.log("In sign_in"); 
   var username = req.body.username;
   var password = req.body.password;
 

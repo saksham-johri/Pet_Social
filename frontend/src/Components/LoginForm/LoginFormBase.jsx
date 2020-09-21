@@ -21,11 +21,12 @@ export default class LoginFormBase extends Component {
 
   submitData = (event) => {
     event.preventDefault();
-
+    // console.log("In Function");
+    // console.log(`${url}/sign_in`);
     axios
       .post(`${url}/sign_in`, this.state)
       .then((res) => {
-        console.log("Responce from BackEnd", res.data);
+        console.log(res.data);
 
         if (res.data === "Username / Password Incorrect!") {
           this.setState({
@@ -37,6 +38,11 @@ export default class LoginFormBase extends Component {
           this.setState({
             err: "",
           });
+          // console.log(this.props);
+          this.props.history.push("/timeline");
+          const user = this.state.username;
+          console.log(user);
+          localStorage.setItem("userName", user);
         }
       })
       .catch((err) => {
