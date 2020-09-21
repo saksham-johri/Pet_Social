@@ -1,7 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Base from "./CreateAccountFormBase";
-export default class CreateAAccountForm extends Base {
+
+class CreateAAccountForm extends Base {
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillMount() {
+    if (localStorage.userName) this.props.history.push("/timeline");
+  }
+
   render() {
     return (
       <>
@@ -83,3 +92,4 @@ export default class CreateAAccountForm extends Base {
     );
   }
 }
+export default withRouter(CreateAAccountForm);

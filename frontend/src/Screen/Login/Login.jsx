@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import WelcomeToPPL from "../../Components/WelcomeToPPL";
-import LoginForm from  '../../Components/LoginForm/LoginForm'
+import LoginForm from "../../Components/LoginForm/LoginForm";
 
 export default class Login extends Component {
-  
   render() {
-    // console.log(this.props);
     return (
       <div>
         <meta charSet="utf-8" />

@@ -38,11 +38,8 @@ export default class LoginFormBase extends Component {
           this.setState({
             err: "",
           });
-          // console.log(this.props);
+          localStorage.setItem("userName", this.state.username);
           this.props.history.push("/timeline");
-          const user = this.state.username;
-          console.log(user);
-          localStorage.setItem("userName", user);
         }
       })
       .catch((err) => {

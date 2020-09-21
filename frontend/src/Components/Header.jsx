@@ -12,12 +12,11 @@ export default function Header() {
               data-toggle="collapse"
               data-target=".nav-collapse"
             >
-              {" "}
-              <span className="icon-bar" /> <span className="icon-bar" />{" "}
-              <span className="icon-bar" />{" "}
+              <span className="icon-bar" /> <span className="icon-bar" />
+              <span className="icon-bar" />
             </button>
             <a className="brand">PPL</a>
-            <div className="pro_info pull-right">
+            <div className="pro_info pull-right"> 
               <div className="pro_icn">
                 <img src="images/pic_small.png" />
               </div>
@@ -56,24 +55,19 @@ export default function Header() {
             <div className="nav-collapse collapse">
               <ul className="nav">
                 <li className="active">
-                  {" "}
-                  <a>Home</a>{" "}
+                  <a>Home</a>
                 </li>
                 <li>
-                  {" "}
-                  <a>E-Coupons</a>{" "}
+                  <a>E-Coupons</a>
                 </li>
                 <li>
-                  {" "}
-                  <a>E-Brands</a>{" "}
+                  <a>E-Brands</a>
                 </li>
                 <li>
-                  {" "}
-                  <a>Resuse Market</a>{" "}
+                  <a>Resuse Market</a>
                 </li>
                 <li>
-                  {" "}
-                  <a>Lost and Found</a>{" "}
+                  <a>Lost and Found</a>
                 </li>
               </ul>
             </div>
@@ -103,9 +97,7 @@ export default function Header() {
               <li>
                 <a href="#"> Resuse Market </a>
               </li>
-              <li>
-                <a href="#"> Lost and Found</a>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -121,8 +113,7 @@ export default function Header() {
           </div>
           <div className="info_div">
             <div className="image_div">
-              {" "}
-              <img src="images/pic.png" />{" "}
+              <img src="images/pic.png" />
             </div>
             <div className="info_div1">Me</div>
           </div>

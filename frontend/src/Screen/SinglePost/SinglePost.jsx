@@ -6,7 +6,7 @@ import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import InviteFriendsBtn from "../../Components/InviteFriendsBtn";
 import Post from "../../Components/Post";
-import UploadPostBtn from "../../Components/UploadPostBtn";
+import UploadPostBtn from "../../Components/UploadPostBtn/UploadPostBtn";
 import Comment from "../../Components/Comment";
 
 export default function SinglePost() {
