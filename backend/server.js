@@ -50,7 +50,7 @@ app.post("/sign_up", (req, res) => {
 });
 
 app.post("/sign_in", (req, res) => {
-  console.log("In sign_in"); 
+  console.log("In sign_in");
   var username = req.body.username;
   var password = req.body.password;
 
@@ -84,6 +84,15 @@ app.post("/uploadfile", upload.single("file"), (req, res, next) => {
   }
   res.send(file);
   console.log("req.file ", req.file);
+});
+
+app.post("/getData", (req, res) => {
+  console.log("Fetching data of user!!");
+  var user = req.body.userName;
+  userdb.findOne({ username: user }, (err, result) => {
+    // console.log(result);
+    res.send(result);
+  });
 });
 
 app.listen(PORT, () => {

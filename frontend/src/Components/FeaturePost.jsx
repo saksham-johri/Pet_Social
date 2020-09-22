@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function FeaturePost() {
+export default function FeaturePost({ value }) {
+  let temp = value ? "" : "none";
   return (
     <>
-      <div className="sub_dwn">
+      <div className="sub_dwn" style={{ display: temp }}>
         <div className="feat_sec">
           <div className="feat_sec_img">
             <img src="images/feat_img2.png" alt="image" />

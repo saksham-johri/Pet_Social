@@ -6,8 +6,7 @@ class LoginForm extends Base {
   constructor(props) {
     super(props);
   }
-
-  componentWillMount() {
+  componentDidMount() {
     if (localStorage.userName) this.props.history.push("/timeline");
   }
 

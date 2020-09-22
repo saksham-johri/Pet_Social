@@ -16,6 +16,7 @@ function App() {
           <Route path="/signup" exact component={Register} />
           <Route path="/timeline" exact component={Timeline} />
           <Route path="/post" exact component={Post} />
+          
         </Switch>
       </Router>
       {/* <SinglePost/> */}

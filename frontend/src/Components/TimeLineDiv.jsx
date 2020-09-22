@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function TimeLineDiv() {
+export default function TimeLineDiv({ username, fname, lname, email }) {
+  // console.log(props);
+
+  const [edit, setEdit] = useState("none");
+  const [showname, setShowname] = useState("");
+
+  function editProfile() {
+    if (edit === "none") {
+      setEdit("");
+      setShowname("none");
+    } else {
+      setEdit("none");
+      setShowname("");
+    }
+
+  }
+
   return (
     <>
       <div className="timeline_div">
@@ -12,8 +28,8 @@ export default function TimeLineDiv() {
             </div>
           </div>
           <div className="profile_info">
-            <div className="edit_div">
-              <a href="#">
+            <div className="edit_div" onClick={editProfile}>
+              <a href="javascript:void(0)">
                 Edit <img src="images/timeline_img.png" />
               </a>
             </div>
@@ -21,19 +37,22 @@ export default function TimeLineDiv() {
               <ul>
                 <li>
                   <div className="div_name1">Name :</div>
-                  <div className="div_name2">Stefiney Gibbs</div>
-                </li>
-                <li>
-                  <div className="div_name1">Sex :</div>
-                  <div className="div_name2">Female</div>
-                </li>
-                <li>
-                  <div className="div_name1">Description :</div>
-                  <div className="div_name3">
-                    This is an example of a comment. You can create as many
-                    comments like this one or sub comments as you like and
-                    manage all of your content inside Account.
+                  <div className="div_name2" style={{display: showname}}>
+                    {fname} {lname}
                   </div>
+                  <form style={{display: edit}}>
+                    <input type="text" defaultValue={fname} />
+                    <input type="text" defaultValue={lname} />
+                    <input type="button" defaultValue="Submit" />
+                  </form>
+                </li>
+                <li>
+                  <div className="div_name1">Email :</div>
+                  <div className="div_name2">{email}</div>
+                </li>
+                <li>
+                  <div className="div_name1">UserName :</div>
+                  <div className="div_name3">{username}</div>
                 </li>
               </ul>
             </div>
@@ -43,7 +62,7 @@ export default function TimeLineDiv() {
           <ul>
             <li>
               <a href="#" className="active">
-                Timeline{" "}
+                Timeline
               </a>
             </li>
             <li>

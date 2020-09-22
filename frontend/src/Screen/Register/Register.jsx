@@ -10,7 +10,7 @@ export default class Register extends Component {
       <div>
         <meta charSet="utf-8" />
         <title>Create An Account</title>
-        <Header />
+        <Header value="" />
         <div className="container">
           <div className="content">
             <CreateAccountForm />

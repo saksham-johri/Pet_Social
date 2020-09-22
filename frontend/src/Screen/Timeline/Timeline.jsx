@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import TimeLineDiv from "../../Components/TimeLineDiv";
@@ -7,14 +7,21 @@ import Categories from "../../Components/Categories";
 import Featured from "../../Components/Featured";
 import UploadPostBtn from "../../Components/UploadPostBtn/UploadPostBtn";
 import InviteFriendsBtn from "../../Components/InviteFriendsBtn";
+import APICaller from "../../util/GetData";
 
 export default function Timeline(props) {
-  useEffect(() => {
+  const [data, setData] = useState({});
+
+  useEffect(async () => {
     if (!localStorage.userName) props.history.replace("/");
+    const temp = await APICaller();
+    // console.log(temp, "In timeline");
+    setData({ ...temp });
   }, []);
 
   const logout = () => {
     localStorage.clear();
+    setData({})
     props.history.replace("/");
   };
 
@@ -55,7 +62,12 @@ export default function Timeline(props) {
                   </li>
                 </ul>
               </div>
-              <TimeLineDiv />
+              <TimeLineDiv
+                username={data.username}
+                fname={data.fname}
+                lname={data.lname}
+                email={data.email}
+              />
             </div>
             <Post />
           </div>

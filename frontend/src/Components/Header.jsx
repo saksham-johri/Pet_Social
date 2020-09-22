@@ -1,6 +1,8 @@
 import React from "react";
 
-export default function Header() {
+export default function Header({ value = true }) {
+  let temp = value ? "" : "none";
+
   return (
     <>
       <div className="navbar navbar-inverse navbar-fixed-top">
@@ -16,7 +18,7 @@ export default function Header() {
               <span className="icon-bar" />
             </button>
             <a className="brand">PPL</a>
-            <div className="pro_info pull-right"> 
+            <div className="pro_info pull-right">
               <div className="pro_icn">
                 <img src="images/pic_small.png" />
               </div>
@@ -97,11 +99,10 @@ export default function Header() {
               <li>
                 <a href="#"> Resuse Market </a>
               </li>
-              
             </ul>
           </div>
         </div>
-        <div className="header_rgt">
+        <div className="header_rgt" style={{display: temp}}>
           <div className="flag_div">
             <img src="images/flag.png" />
           </div>

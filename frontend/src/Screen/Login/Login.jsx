@@ -10,7 +10,7 @@ export default class Login extends Component {
       <div>
         <meta charSet="utf-8" />
         <title>Login Account</title>
-        <Header />
+        <Header value="" />
         <div className="container">
           <div className="content">
             <LoginForm />
