@@ -1,5 +1,5 @@
 import axios from "axios";
-import url from "../config";
+import url from "../config/index.js";
 
 function APICaller() {
   let data = {
@@ -12,7 +12,7 @@ function APICaller() {
   return new Promise((resolve, reject) => {
     if (localStorage.userName) {
       axios
-        .post(`${url}/getData`, localStorage)
+        .post(`${url}/dashboard/getData`, localStorage)
         .then((res) => {
           // console.log(res.data,"In GetData");
           data.username = res.data.username;

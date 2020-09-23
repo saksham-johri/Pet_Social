@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Header from "../../Components/Header";
-import Footer from "../../Components/Footer";
-import WelcomeToPPL from "../../Components/WelcomeToPPL";
-import LoginForm from "../../Components/LoginForm/LoginForm";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import WelcomeToPPL from "../../components/WelcomeToPPL";
+import LoginForm from "../../components/LoginForm/LoginForm";
 
 export default class Login extends Component {
   render() {
@@ -17,7 +17,6 @@ export default class Login extends Component {
             <WelcomeToPPL />
           </div>
         </div>
-        <Footer />
       </div>
     );
   }

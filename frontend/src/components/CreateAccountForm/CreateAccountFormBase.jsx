@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import axios from "axios";
 import url from "../../config";
 
@@ -24,9 +24,8 @@ export default class CreateAccountFormBase extends Component {
 
   submitData = (event) => {
     event.preventDefault();
-
     axios
-      .post(`${url}/sign_up`, this.state)
+      .post(`${url}/auth/sign_up`, this.state)
       .then((res) => {
         console.log("Responce from BackEnd", res.data);
         if (res.data === "Username Already Exist") {

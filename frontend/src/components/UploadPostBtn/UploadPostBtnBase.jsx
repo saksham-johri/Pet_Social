@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import url from "../../config";
 
 export default class UploadPostBtnBase extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export default class UploadPostBtnBase extends Component {
   };
 
   onFileChange = (event) => {
-    console.log(event.target.files[0]);
+    // console.log(event.target.files[0]);
     this.setState({ selectedFile: event.target.files[0] });
   };
 
@@ -28,15 +29,16 @@ export default class UploadPostBtnBase extends Component {
 
     // Update the formData object
     formData.append(
-      "myFile",
+      "file",
       this.state.selectedFile,
       this.state.selectedFile.name
     );
     // Details of the uploaded file
-    console.log(this.state.selectedFile);
+
+    // console.log(this.state.selectedFile);
     // console.log(formData.getAll);
     axios
-      .post("http://localhost:8081/uploadfile", formData)
+      .post(`${url}/uploadfile`, formData)
       .then((res) => {
         console.log("Response From Backend", res);
       })

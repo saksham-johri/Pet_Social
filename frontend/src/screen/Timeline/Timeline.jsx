@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../Components/Header";
-import Footer from "../../Components/Footer";
-import TimeLineDiv from "../../Components/TimeLineDiv";
-import Post from "../../Components/Post";
-import Categories from "../../Components/Categories";
-import Featured from "../../Components/Featured";
-import UploadPostBtn from "../../Components/UploadPostBtn/UploadPostBtn";
-import InviteFriendsBtn from "../../Components/InviteFriendsBtn";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import TimeLineDiv from "../../components/TimeLineDiv";
+import Post from "../../components/Post";
+import Categories from "../../components/Categories";
+import Featured from "../../components/Featured";
+import UploadPostBtn from "../../components/UploadPostBtn/UploadPostBtn";
+import InviteFriendsBtn from "../../components/InviteFriendsBtn";
 import APICaller from "../../util/GetData";
 
 export default function Timeline(props) {
-  const [data, setData] = useState({});
 
+  const [data, setData] = useState({});
   useEffect(async () => {
-    if (!localStorage.userName) props.history.replace("/");
+    // console.log(props.setTemp);
     const temp = await APICaller();
-    // console.log(temp, "In timeline");
     setData({ ...temp });
   }, []);
 
   const logout = () => {
     localStorage.clear();
-    setData({})
-    props.history.replace("/");
+    setData({});
+    props.history.push("/");
+    window.location.reload()
   };
 
   return (
@@ -73,7 +73,6 @@ export default function Timeline(props) {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

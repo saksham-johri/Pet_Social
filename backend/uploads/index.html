@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            background-color: yellowgreen;
+        }
+        #box{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background: red;
+            border-radius: 50px;
+        }
+    </style>
+
+</head>
+<body onload="fun()">
+        <div id="box"></div>
+
+    <script>
+        function fun()
+        {
+            var w = document.documentElement.clientWidth - 50;
+            var h = document.documentElement.clientHeight - 50;
+
+            var element = document.getElementById("box");
+            var top = 0;
+            var left = 0;
+            var flag = 0;
+            var id = setInterval(frame, 1);
+            function frame()
+            {
+                if (flag == 0)
+                {
+                    if (left < w && top == 0)
+                    {
+                        left++;
+                        element.style.left = left + "px";
+                    }
+
+                    else if (left == w && top < h)
+                    {
+                        top++;
+                        element.style.top = top + "px";
+                    }
+
+                    else if (left > 0 && top == h)
+                    {
+                        left--;
+                        element.style.left = left + "px";
+                    }
+
+                    else if (left == 0 && top > 0)
+                    {
+                        top--;
+                        if (top == 1)
+                        {
+                            flag = 1;
+                        }
+                        element.style.top = top + "px";
+                    }
+
+                }
+
+                else if (flag == 1)
+                {
+                    if (left == 0 && top < h)
+                    {
+                        top++;
+                        element.style.top = top + "px";
+                    }
+
+                    else if (top == h && left < w)
+                    {
+                        left++;
+                        element.style.left = left + "px";
+                    }
+
+                    else if (left == w && top > 0)
+                    {
+                        top--;
+                        element.style.top = top + "px";
+                    }
+
+                    else if (top == 0 && left > 0)
+                    {
+                        left--;
+                        if (left == 1)
+                        {
+                            flag = 0;
+                        }
+                        element.style.left = left + "px";
+                    }
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>

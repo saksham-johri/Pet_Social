@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import axios from "axios";
+import url from "../config";
 
 export default function TimeLineDiv({ username, fname, lname, email }) {
   // console.log(props);
-
   const [edit, setEdit] = useState("none");
   const [showname, setShowname] = useState("");
 
@@ -14,7 +15,6 @@ export default function TimeLineDiv({ username, fname, lname, email }) {
       setEdit("none");
       setShowname("");
     }
-
   }
 
   return (
@@ -37,13 +37,13 @@ export default function TimeLineDiv({ username, fname, lname, email }) {
               <ul>
                 <li>
                   <div className="div_name1">Name :</div>
-                  <div className="div_name2" style={{display: showname}}>
+                  <div className="div_name2" style={{ display: showname }}>
                     {fname} {lname}
                   </div>
-                  <form style={{display: edit}}>
-                    <input type="text" defaultValue={fname} />
-                    <input type="text" defaultValue={lname} />
-                    <input type="button" defaultValue="Submit" />
+                  <form style={{ display: edit }}>
+                    <input type="text" Value={fname} name="fname" />
+                    <input type="text" Value={lname} name="lname" />
+                    <input type="submit" value="Save" />
                   </form>
                 </li>
                 <li>

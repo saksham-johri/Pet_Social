@@ -24,7 +24,7 @@ export default class LoginFormBase extends Component {
     // console.log("In Function");
     // console.log(`${url}/sign_in`);
     axios
-      .post(`${url}/sign_in`, this.state)
+      .post(`${url}/auth/sign_in`, this.state)
       .then((res) => {
         console.log(res.data);
 
@@ -39,7 +39,7 @@ export default class LoginFormBase extends Component {
             err: "",
           });
           localStorage.setItem("userName", this.state.username);
-          this.props.history.push("/timeline");
+          this.props.history.push("/");
         }
       })
       .catch((err) => {

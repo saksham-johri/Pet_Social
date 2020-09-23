@@ -40,7 +40,6 @@ export default function SinglePost() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

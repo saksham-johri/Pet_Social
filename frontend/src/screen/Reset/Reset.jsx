@@ -16,7 +16,6 @@ export default function Reset() {
           <WelcomeToPPL />
         </div>
       </div>
-      <Footer />
     </>
   );
 }

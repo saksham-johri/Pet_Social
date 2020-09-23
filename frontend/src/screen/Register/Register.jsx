@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Header from "../../Components/Header";
-import Footer from "../../Components/Footer";
-import CreateAccountForm from "../../Components/CreateAccountForm/CreateAccountForm";
-import WelcomeToPPL from "../../Components/WelcomeToPPL";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import CreateAccountForm from "../../components/CreateAccountForm/CreateAccountForm";
+import WelcomeToPPL from "../../components/WelcomeToPPL";
 
 export default class Register extends Component {
   render() {
@@ -17,7 +17,6 @@ export default class Register extends Component {
             <WelcomeToPPL />
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
