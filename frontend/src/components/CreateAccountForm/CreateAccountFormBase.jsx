@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
-import url from "../../config";
+import APICaller from "../../util/APICaller";
 
 export default class CreateAccountFormBase extends Component {
   constructor(props) {
@@ -24,11 +23,11 @@ export default class CreateAccountFormBase extends Component {
 
   submitData = (event) => {
     event.preventDefault();
-    axios
-      .post(`${url}/auth/sign_up`, this.state)
+
+    APICaller("post", "/auth/sign_up", this.state)
       .then((res) => {
-        console.log("Responce from BackEnd", res.data);
-        if (res.data === "Username Already Exist") {
+        console.log("Responce from BackEnd", res);
+        if (res === "Username Already Exist") {
           this.setState({
             err: <p style={{ color: "red" }}>Username Already Exist</p>,
           });

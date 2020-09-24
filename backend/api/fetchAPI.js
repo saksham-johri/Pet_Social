@@ -19,4 +19,13 @@ module.exports = {
       });
     });
   },
+
+  getAllPost: () => {
+    return new Promise((resolve, reject) => {
+      postdb.find((err, result) => {
+        if (err) reject(err);
+        resolve(result);
+      });
+    });
+  },
 };

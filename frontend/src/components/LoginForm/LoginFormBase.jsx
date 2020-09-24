@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
-import url from "../../config";
+import APICaller from "../../util/APICaller";
 
 export default class LoginFormBase extends Component {
   constructor(props) {
@@ -21,14 +20,13 @@ export default class LoginFormBase extends Component {
 
   submitData = (event) => {
     event.preventDefault();
-    // console.log("In Function");
-    // console.log(`${url}/sign_in`);
-    axios
-      .post(`${url}/auth/sign_in`, this.state)
-      .then((res) => {
-        console.log(res.data);
 
-        if (res.data === "Username / Password Incorrect!") {
+    APICaller("post", "/auth/sign_in", this.state)
+      .then((res) => {
+
+        console.log(res);
+
+        if (res === "Username / Password Incorrect!") {
           this.setState({
             err: (
               <p style={{ color: "red" }}>* Username / Password Incorrect!</p>
@@ -38,6 +36,7 @@ export default class LoginFormBase extends Component {
           this.setState({
             err: "",
           });
+
           localStorage.setItem("userName", this.state.username);
           this.props.history.push("/");
         }

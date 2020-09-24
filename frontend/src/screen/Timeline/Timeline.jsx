@@ -1,30 +1,35 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import TimeLineDiv from "../../components/TimeLineDiv";
 import Post from "../../components/Post";
 import Categories from "../../components/Categories";
 import Featured from "../../components/Featured";
 import UploadPostBtn from "../../components/UploadPostBtn/UploadPostBtn";
 import InviteFriendsBtn from "../../components/InviteFriendsBtn";
-// import APICaller from "../../util/GetData";
-
 import APICaller from "../../util/APICaller";
 
 export default function Timeline(props) {
   const [data, setData] = useState({});
-  useEffect(async () => {
-    // console.log(props.setTemp);
-    // const temp = await APICaller();
-    // setData({ ...temp });
 
+  const [posts, setposts] = useState([]);
+
+  useEffect(() => {
     APICaller("post", "/dashboard/getData", { username: localStorage.userName })
       .then((res) => {
-        // console.log(res);
-        setData(res)
+        setData(res);
       })
       .catch((err) => {
         console.log("ERROR!!", err);
+      });
+  }, []);
+
+  useEffect(() => {
+    APICaller("get", "/dashboard/getAllPost")
+      .then((res) => {
+        setposts(res);
+      })
+      .catch((err) => {
+        console.log("ERROR: ", err);
       });
   }, []);
 
@@ -79,7 +84,11 @@ export default function Timeline(props) {
                 email={data.email}
               />
             </div>
-            <Post />
+
+            {posts.length &&
+              posts.map(postItem => (<Post content= {postItem} />))}
+
+            {/* <Post /> */}
           </div>
         </div>
       </div>

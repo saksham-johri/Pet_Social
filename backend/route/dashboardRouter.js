@@ -1,5 +1,5 @@
 var express = require("express");
-const { fullInfo, uploadpost } = require("../api/fetchAPI");
+const { fullInfo, uploadpost, getAllPost } = require("../api/fetchAPI");
 var router = express.Router();
 var multer = require("multer");
 
@@ -31,9 +31,11 @@ router.post("/uploadfile", upload.single("file"), async (req, res) => {
   }
 
   console.log("Uploading File!!");
-
+  // console.log(req.body);
   const data = {
     username: req.body.username,
+    description: req.body.description,
+    category: req.body.category,
     date: Date.now(),
     filename: `${Date.now()}-${req.file.originalname}`,
     path: "./uploads",
@@ -43,6 +45,16 @@ router.post("/uploadfile", upload.single("file"), async (req, res) => {
 
   let result = await uploadpost(data);
   res.send(result);
+});
+
+router.get("/getAllPost", async (req, res) => {
+  try {
+    let result = await getAllPost();
+    res.send(result);
+  } catch (e) {
+    console.log(e);
+    res.send(e);
+  }
 });
 
 module.exports = router;

@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Post() {
-  const title = "User Interface PSD Source files Web Designing for web";
-  const user = "Steave Waugh";
+export default function Post(props) {
+  const title = props.content.description;
+  const user = props.content.username;
   const numOfLikes = 0;
   const numOfComments = 4;
-  const category = "Cats";
-  const img = "images/lft_img.png";
+  const categ = props.content.category;
+  const img = `${props.content.path}/${props.content.filename}`;
+  console.log(img);
+  // const img = '../../backend/uploads/1600951745974-pexels-tirachard-kumtanom-450055.jpg'
 
   const test = () => {
     console.log("OPEN!!");
@@ -19,7 +21,7 @@ export default function Post() {
         <div className="div_a">
           <div className="div_title">{title}</div>
           <div className="btm_rgt">
-            <div className="btm_arc">{category}</div>
+            <div className="btm_arc">{categ}</div>
           </div>
           <div className="div_top">
             <div className="div_top_lft">
