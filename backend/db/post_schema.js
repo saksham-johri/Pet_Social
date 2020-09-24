@@ -1,10 +1,12 @@
 var mongoose = require("mongoose");
 
-var PostSchema = mongoose.Schema({
-  filename: String,
-  path: String,
-  username: String,
-  date: Date.now(),
-  like: Array,
-  comment: Array,
+var postSchema = mongoose.Schema({
+  username: { type: String },
+  date: { type: Date },
+  filename: { type: String },
+  path: { type: String },
+  like: { type: Array },
+  comment: { type: Array },
 });
+
+module.exports = mongoose.model("post", postSchema);

@@ -18,12 +18,44 @@ export default class UploadPostBtn extends Base {
           encType="multipart/form-data"
         >
           <input
+            type="text"
+            name="description"
+            required
+            value={this.state.title}
+            onChange={this.handleChange}
+            placeholder='Description'
+          />
+
+          <br />
+          <br />
+
+          <select
+            name="category"
+            value={this.state.category}
+            onChange={this.handleChange}
+            required
+          >
+            <option value="" selected disabled hidden>Category</option>
+            <option value="CATS">CATS</option>
+            <option value="DOGS">DOGS</option>
+            <option value="BIRDS">BIRDS</option>
+            <option value="RABBIT">RABBIT</option>
+            <option value="OTHERS">OTHERS</option>
+          </select>
+
+          <br />
+          <br />
+
+          <input
             type="file"
             name="file"
+            accept="image/*"
             onChange={this.onFileChange}
             required
-            className="btn"
+            // className="btn"
           />
+          <br />
+          <br />
           <button
             type="submit"
             // onClick={this.onFileUpload}

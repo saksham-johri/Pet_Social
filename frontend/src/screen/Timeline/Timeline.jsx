@@ -7,22 +7,32 @@ import Categories from "../../components/Categories";
 import Featured from "../../components/Featured";
 import UploadPostBtn from "../../components/UploadPostBtn/UploadPostBtn";
 import InviteFriendsBtn from "../../components/InviteFriendsBtn";
-import APICaller from "../../util/GetData";
+// import APICaller from "../../util/GetData";
+
+import APICaller from "../../util/APICaller";
 
 export default function Timeline(props) {
-
   const [data, setData] = useState({});
   useEffect(async () => {
     // console.log(props.setTemp);
-    const temp = await APICaller();
-    setData({ ...temp });
+    // const temp = await APICaller();
+    // setData({ ...temp });
+
+    APICaller("post", "/dashboard/getData", { username: localStorage.userName })
+      .then((res) => {
+        // console.log(res);
+        setData(res)
+      })
+      .catch((err) => {
+        console.log("ERROR!!", err);
+      });
   }, []);
 
   const logout = () => {
     localStorage.clear();
     setData({});
     props.history.push("/");
-    window.location.reload()
+    window.location.reload();
   };
 
   return (

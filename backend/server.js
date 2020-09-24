@@ -4,50 +4,57 @@ var express = require("express");
 var app = express();
 
 var mongoose = require("mongoose");
-var cors = require("cors");
-var multer = require("multer");
-
-var authRouter = require("./route/authRouter");
-var dashboardRouter = require("./route/dashboardRouter");
-
-var userdb = require("./db/user_schema");
-
-var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
-
 mongoose.connect("mongodb://localhost:27017/dbname", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-// SET STORAGE
-var storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./uploads");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-var upload = multer({ storage: storage });
+var cors = require("cors");
+
+var authRouter = require("./route/authRouter");
+var dashboardRouter = require("./route/dashboardRouter");
+
+
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(cors());
 
 app.use("/auth", authRouter);
 
 app.use("/dashboard", dashboardRouter);
 
-app.post("/uploadfile", upload.single("file"), (req, res) => {
-  console.log("Uploading File");
-  const file = req.file;
-  if (!file) {
-    const error = new Error("Please upload a file");
-    error.httpStatusCode = 400;
-    return next(error);
-  }
-  res.send(file);
-  console.log("req.file ", req.file);
-});
+// app.post("/uploadfile", upload.single("file"), (req, res) => {
+//   if (!req.file) {
+//     const error = new Error("Please upload a file");
+//     error.httpStatusCode = 400;
+//     return next(error);
+//   }
+
+//   console.log("Uploading File");
+
+//   const data = {
+//     username: req.body.username,
+//     date: Date.now(),
+//     filename: `${Date.now()}-${req.file.originalname}`,
+//     path: "./uploads",
+//     like: [],
+//     comment: [],
+//   };
+
+//   console.log("Data", data);
+
+//   postdb.create(data, (err, result) => {
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       // console.log("Result", result);
+//       res.send("File Uploaded");
+//     }
+//     console.log("File Uploaded Successfully!!");
+//   });
+// });
 
 app.listen(PORT, () => {
   console.log(`Connected to Server on PORT: ${PORT}`);
