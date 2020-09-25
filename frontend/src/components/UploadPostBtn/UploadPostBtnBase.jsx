@@ -47,7 +47,6 @@ export default class UploadPostBtnBase extends Component {
     formData.append("category", this.state.category);
     formData.append("username", localStorage.userName);
     // Details of the uploaded file
-
     APICaller("post", "/dashboard/uploadfile", formData)
       .then((res) => {
         console.log("Response from Backend", res);

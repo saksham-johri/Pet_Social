@@ -86,9 +86,7 @@ export default function Timeline(props) {
             </div>
 
             {posts.length &&
-              posts.map(postItem => (<Post content= {postItem} />))}
-
-            {/* <Post /> */}
+              posts.map((postItem) => <Post content={postItem} />)}
           </div>
         </div>
       </div>

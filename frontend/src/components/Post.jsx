@@ -7,9 +7,11 @@ export default function Post(props) {
   const numOfLikes = 0;
   const numOfComments = 4;
   const categ = props.content.category;
-  const img = `${props.content.path}/${props.content.filename}`;
-  console.log(img);
-  // const img = '../../backend/uploads/1600951745974-pexels-tirachard-kumtanom-450055.jpg'
+  // const img = `${props.content.path}/${props.content.filename}`;
+  const img = require(`../../../backend/uploads/${props.content.filename}`);
+  // console.log(props.content.filename);
+
+  const date = props.content.date;
 
   const test = () => {
     console.log("OPEN!!");
@@ -29,8 +31,9 @@ export default function Post(props) {
               {user}
             </div>
             <div className="div_top_rgt">
-              <span className="span_date">02 Jan 2014</span>
-              <span className="span_time">11:15am</span>
+              {/* <span className="span_date">02 Jan 2014</span>
+              <span className="span_time">11:15am</span> */}
+              <span>{date}</span>
             </div>
           </div>
           <div className="div_image">

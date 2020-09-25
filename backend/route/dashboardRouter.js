@@ -2,14 +2,14 @@ var express = require("express");
 const { fullInfo, uploadpost, getAllPost } = require("../api/fetchAPI");
 var router = express.Router();
 var multer = require("multer");
-
+var date_store;
 // SET STORAGE
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./uploads");
   },
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
+    cb(null, `${(date_store = Date.now())}-${file.originalname}`);
   },
 });
 
@@ -36,8 +36,8 @@ router.post("/uploadfile", upload.single("file"), async (req, res) => {
     username: req.body.username,
     description: req.body.description,
     category: req.body.category,
-    date: Date.now(),
-    filename: `${Date.now()}-${req.file.originalname}`,
+    date: date_store,
+    filename: `${date_store}-${req.file.originalname}`,
     path: "./uploads",
     like: [],
     comment: [],
