@@ -6479,7 +6479,7 @@ a.badge:focus {
   float: left;
   width: 162px;
   height: 94px;
-  background-image: url(../images/logo_bg.png);
+  background-image: url(..//images/logo_bg.png);
   background-repeat: no-repeat;
   text-align: center;
 }
@@ -6513,14 +6513,14 @@ a.badge:focus {
   margin-right: 0%;
 }
 .navigatn ul li a:hover {
-  background-image: url(../images/arw.png);
+  background-image: url(..//images/arw.png);
   background-repeat: no-repeat;
   background-position: bottom center;
   width: 12px;
   height: 7px;
 }
 .navigatn ul li a.active {
-  background-image: url(../images/arw.png);
+  background-image: url(..//images/arw.png);
   background-repeat: no-repeat;
   background-position: bottom center;
   width: 12px;
@@ -6534,7 +6534,7 @@ a.badge:focus {
 }
 .flag_div {
   float: left;
-  background-image: url(../images/arw2.png);
+  background-image: url(..//images/arw2.png);
   background-position: right;
   background-repeat: no-repeat;
   margin-top: 12px;
@@ -6545,7 +6545,7 @@ a.badge:focus {
 }
 .txt_box {
   float: left;
-  background-image: url(../images/serch.png);
+  background-image: url(..//images/serch.png);
   background-position: 8px;
   text-indent: 30px;
   background-repeat: no-repeat;
@@ -6562,7 +6562,7 @@ a.badge:focus {
 .msg_box {
   float: left;
   margin-left: 5%;
-  background: url(../images/msg_bx.png) no-repeat 0px 10px;
+  background: url(..//images/msg_bx.png) no-repeat 0px 10px;
   width: 42px;
   height: 39px;
 }
@@ -6596,7 +6596,7 @@ a.badge:focus {
 }
 .info_div1 {
   float: right;
-  background-image: url(../images/arw2.png);
+  background-image: url(..//images/arw2.png);
   width: 37%;
   color: #fff;
   margin-top: 13%;
@@ -6713,7 +6713,7 @@ a.badge:focus {
   font-size: 13px;
 }
 .post_list ul li:hover {
-  background-image: url(../images/arw2.png);
+  background-image: url(..//images/arw2.png);
   background-position: bottom center;
 }
 .list_img {
@@ -6901,7 +6901,7 @@ a.badge:focus {
 }
 .btm_rgt {
   float: right;
-  background: url(../images/side_arc.png) no-repeat;
+  background: url(..//images/side_arc.png) no-repeat;
   width: auto;
   height: 28px;
   color: #fff;
@@ -6917,7 +6917,7 @@ a.badge:focus {
   width: auto;
   float: left;
   height: 28px;
-  background: url(../images/side_img.png);
+  background: url(..//images/side_img.png);
   margin-left: 11px;
   padding-right: 11px;
 }
@@ -7152,13 +7152,13 @@ a.badge:focus {
 }
 
 .lft_cnt {
-  background: url(../images/lft_aro.png) no-repeat left center;
+  background: url(..//images/lft_aro.png) no-repeat left center;
   width: 9px;
   height: 24px;
   float: left;
 }
 .mid_cnt {
-  background: url(../images/mid.png) repeat-x left center;
+  background: url(..//images/mid.png) repeat-x left center;
   width: auto;
   height: 24px;
   float: left;
@@ -7166,7 +7166,7 @@ a.badge:focus {
   text-indent: 5px;
 }
 .rit_cnt {
-  background: url(../images/right_arrow.png) no-repeat left center;
+  background: url(..//images/right_arrow.png) no-repeat left center;
   width: 9px;
   height: 24px;
   float: left;
@@ -7214,7 +7214,7 @@ a.badge:focus {
   color: #f47b13;
   text-shadow: 1px 1px 1px #fff;
   float: left;
-  background: url(../images/h1_lin.png) bottom left repeat-x;
+  background: url(..//images/h1_lin.png) bottom left repeat-x;
 }
 
 .login_sec ul {
@@ -7403,7 +7403,7 @@ a.badge:focus {
   color: #f47b13;
   text-shadow: 1px 1px 1px #fff;
   float: left;
-  background: url(../images/h1_lin.png) bottom left repeat-x;
+  background: url(..//images/h1_lin.png) bottom left repeat-x;
 }
 
 .register_sec ul {
@@ -7544,7 +7544,7 @@ a.badge:focus {
   width: 100%;
   height: auto;
   float: left;
-  background: url(../images/h1_lin.png) bottom left repeat-x;
+  background: url(..//images/h1_lin.png) bottom left repeat-x;
   font-size: 17px;
   color: #5d5959;
   font-family: "Helvetica Neue";

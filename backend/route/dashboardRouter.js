@@ -1,5 +1,11 @@
 var express = require("express");
-const { fullInfo, uploadpost, getAllPost, getUserPost } = require("../api/fetchAPI");
+const {
+  fullInfo,
+  uploadpost,
+  getAllPost,
+  getUserPost,
+  getPost,
+} = require("../api/fetchAPI");
 var router = express.Router();
 var multer = require("multer");
 var date_store;
@@ -63,6 +69,15 @@ router.post("/getUserPost", async (req, res) => {
     res.send(result);
   } catch (e) {
     console.log(e);
+    res.send(e);
+  }
+});
+
+router.get("/post/:id", async (req, res) => {
+  try {
+    let result = await getPost(req.params.id);
+    res.send(result);
+  } catch (e) {
     res.send(e);
   }
 });

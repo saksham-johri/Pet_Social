@@ -23,7 +23,7 @@ export default class UploadPostBtn extends Base {
             required
             value={this.state.title}
             onChange={this.handleChange}
-            placeholder='Description'
+            placeholder="Description"
           />
 
           <br />
@@ -35,7 +35,9 @@ export default class UploadPostBtn extends Base {
             onChange={this.handleChange}
             required
           >
-            <option value="" selected disabled hidden>Category</option>
+            <option value="" selected disabled hidden>
+              Category
+            </option>
             <option value="CATS">CATS</option>
             <option value="DOGS">DOGS</option>
             <option value="BIRDS">BIRDS</option>
@@ -81,10 +83,10 @@ export default class UploadPostBtn extends Base {
       <>
         <div className="rght_btn" onClick={this.changeUploadForm}>
           <span className="rght_btn_icon">
-            <img src="images/btn_iconb.png" alt="up" />
+            <img src="/images/btn_iconb.png" alt="up" />
           </span>
           <span className="btn_sep">
-            <img src="images/btn_sep.png" alt="sep" />
+            <img src="/images/btn_sep.png" alt="sep" />
           </span>
           <a>Upload Post</a>
         </div>

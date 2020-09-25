@@ -25,7 +25,7 @@ function TimeLineDiv({ username, fname, lname, email, ...props }) {
       <div className="timeline_div">
         <div className="timeline_div1">
           <div className="profile_pic">
-            <img src="images/timeline_img1.png" />
+            <img src="/images/timeline_img1.png" />
             <div className="profile_text">
               <a href="#">Change Profile Pic</a>
             </div>
@@ -33,7 +33,7 @@ function TimeLineDiv({ username, fname, lname, email, ...props }) {
           <div className="profile_info">
             <div className="edit_div" onClick={editProfile}>
               <a href="javascript:void(0)">
-                Edit <img src="images/timeline_img.png" />
+                Edit <img src="/images/timeline_img.png" />
               </a>
             </div>
             <div className="profile_form">
@@ -43,10 +43,13 @@ function TimeLineDiv({ username, fname, lname, email, ...props }) {
                   <div className="div_name2" style={{ display: showname }}>
                     {fname} {lname}
                   </div>
-                  <form style={{ display: edit }}>
+                  <form
+                    style={{ display: edit }}
+                    onSubmit={(e) => e.preventDefault()}
+                  >
                     <input type="text" Value={fname} name="fname" />
                     <input type="text" Value={lname} name="lname" />
-                    <input type="submit" value="Save" />
+                    <input type="submit" value="Save" onClick={editProfile} />
                   </form>
                 </li>
                 <li>
@@ -79,7 +82,7 @@ function TimeLineDiv({ username, fname, lname, email, ...props }) {
             </li>
             <li>
               <a onClick={myuploads} href="javascript:void(0)">
-                My Uploads{" "}
+                My Uploads
               </a>
             </li>
           </ul>

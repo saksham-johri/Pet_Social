@@ -37,4 +37,13 @@ module.exports = {
       });
     });
   },
+
+  getPost: (id) => {
+    return new Promise((resolve, reject) => {
+      postdb.find({ _id: id }, (err, result) => {
+        if (err) reject(err);
+        resolve(result);
+      });
+    });
+  },
 };

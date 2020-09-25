@@ -17,22 +17,22 @@ export default function Footer() {
           <ul>
             <li>
               <a href="javascript:void(0)">
-                <img src="images/social_1.png" />
+                <img src="/images/social_1.png" />
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
-                <img src="images/social_2.png" />
+                <img src="/images/social_2.png" />
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
-                <img src="images/social_3.png" />
+                <img src="/images/social_3.png" />
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
-                <img src="images/social_4.png" />
+                <img src="/images/social_4.png" />
               </a>
             </li>
           </ul>

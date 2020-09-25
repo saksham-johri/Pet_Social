@@ -1,8 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-function Header(props) {
-  let temp = props.value ? "" : "none";
+function Header({ value = true, ...props }) {
+  let temp = value ? "" : "none";
 
   const home = () => {
     props.history.replace("/");
@@ -25,7 +25,7 @@ function Header(props) {
             <a className="brand">PPL</a>
             <div className="pro_info pull-right">
               <div className="pro_icn">
-                <img src="images/pic_small.png" />
+                <img src="/images/pic_small.png" />
               </div>
               <div className="pro_txt">
                 Me
@@ -85,7 +85,7 @@ function Header(props) {
         <div className="header_lft">
           <div className="logo">
             <a href="#">
-              <img src="images/logo.png" />
+              <img src="/images/logo.png" />
             </a>
           </div>
           <div className="navigatn">
@@ -109,7 +109,7 @@ function Header(props) {
         </div>
         <div className="header_rgt" style={{ display: temp }}>
           <div className="flag_div">
-            <img src="images/flag.png" />
+            <img src="/images/flag.png" />
           </div>
           <input type="text" placeholder="Search" className="txt_box" />
           <div className="msg_box">
@@ -119,7 +119,7 @@ function Header(props) {
           </div>
           <div className="info_div">
             <div className="image_div">
-              <img src="images/pic.png" />
+              <img src="/images/pic.png" />
             </div>
             <div className="info_div1">Me</div>
           </div>

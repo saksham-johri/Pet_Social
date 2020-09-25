@@ -1,20 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-export default function Post(props) {
+function Post(props) {
   const title = props.content.description;
   const user = props.content.username;
   const numOfLikes = 0;
   const numOfComments = 4;
   const categ = props.content.category;
-  // const img = `${props.content.path}/${props.content.filename}`;
   const img = require(`../../../backend/uploads/${props.content.filename}`);
-  // console.log(props.content.filename);
-
   const date = props.content.date;
 
-  const test = () => {
-    console.log("OPEN!!");
+  // console.log(props.content._id);
+
+  const openPost = () => {
+    props.history.push(`/post/${props.content._id}`, {
+      id: `${props.content._id}`,
+    });
+    //${props.content._id}
+    // console.log("Hi");
   };
 
   return (
@@ -27,7 +30,7 @@ export default function Post(props) {
           </div>
           <div className="div_top">
             <div className="div_top_lft">
-              <img src="images/img_6.png" />
+              <img src="/images/img_6.png" />
               {user}
             </div>
             <div className="div_top_rgt">
@@ -37,39 +40,39 @@ export default function Post(props) {
             </div>
           </div>
           <div className="div_image">
-            <img src={img} alt="pet" onClick={test} />
+            <img src={img} alt="pet" onClick={openPost} />
           </div>
           <div className="div_btm">
             <div className="btm_list">
               <ul>
-                <li onClick={test}>
-                  <Link to="/">
+                <li onClick={openPost}>
+                  <a href="javascript:void(0)">
                     <span className="btn_icon">
-                      <img src="images/icon_001.png" alt="share" />
+                      <img src="/images/icon_001.png" alt="share" />
                     </span>
                     Share
-                  </Link>
+                  </a>
                 </li>
-                <li onClick={test}>
-                  <a>
+                <li onClick={openPost}>
+                  <a href="javascript:void(0)">
                     <span className="btn_icon">
-                      <img src="images/icon_002.png" alt="share" />
+                      <img src="/images/icon_002.png" alt="share" />
                     </span>
                     Flag
                   </a>
                 </li>
-                <li onClick={test}>
-                  <a>
+                <li onClick={openPost}>
+                  <a href="javascript:void(0)">
                     <span className="btn_icon">
-                      <img src="images/icon_003.png" alt="share" />
+                      <img src="/images/icon_003.png" alt="share" />
                     </span>
                     {numOfLikes} Likes
                   </a>
                 </li>
-                <li onClick={test}>
-                  <a>
+                <li onClick={openPost}>
+                  <a href="javascript:void(0)">
                     <span className="btn_icon">
-                      <img src="images/icon_004.png" alt="share" />
+                      <img src="/images/icon_004.png" alt="share" />
                     </span>
                     {numOfComments} Comments
                   </a>
@@ -82,3 +85,5 @@ export default function Post(props) {
     </>
   );
 }
+
+export default withRouter(Post);
