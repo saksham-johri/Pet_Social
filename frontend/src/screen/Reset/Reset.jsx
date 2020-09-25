@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import Reserform from "../../Components/ResetForm/Reserform";
 import WelcomeToPPL from "../../Components/WelcomeToPPL";
