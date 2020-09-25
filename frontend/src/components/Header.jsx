@@ -1,7 +1,12 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
-export default function Header({ value = true }) {
-  let temp = value ? "" : "none";
+function Header(props) {
+  let temp = props.value ? "" : "none";
+
+  const home = () => {
+    props.history.replace("/");
+  };
 
   return (
     <>
@@ -86,7 +91,7 @@ export default function Header({ value = true }) {
           <div className="navigatn">
             <ul>
               <li>
-                <a href="#" className="active">
+                <a href="javascript:void(0)" className="active" onClick={home}>
                   Home
                 </a>
               </li>
@@ -102,7 +107,7 @@ export default function Header({ value = true }) {
             </ul>
           </div>
         </div>
-        <div className="header_rgt" style={{display: temp}}>
+        <div className="header_rgt" style={{ display: temp }}>
           <div className="flag_div">
             <img src="images/flag.png" />
           </div>
@@ -123,3 +128,5 @@ export default function Header({ value = true }) {
     </>
   );
 }
+
+export default withRouter(Header);

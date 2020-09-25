@@ -28,4 +28,13 @@ module.exports = {
       });
     });
   },
+
+  getUserPost: (user) => {
+    return new Promise((resolve, reject) => {
+      postdb.find({ username: user }, (err, result) => {
+        if (err) reject(err);
+        resolve(result);
+      });
+    });
+  },
 };

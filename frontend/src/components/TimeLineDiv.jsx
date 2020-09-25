@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
-import url from "../config";
+import { withRouter } from "react-router-dom";
+import MyUploads from "../screen/MyUploads/MyUploads";
 
-export default function TimeLineDiv({ username, fname, lname, email }) {
-  // console.log(props);
+function TimeLineDiv({ username, fname, lname, email, ...props }) {
   const [edit, setEdit] = useState("none");
   const [showname, setShowname] = useState("");
 
@@ -16,6 +15,10 @@ export default function TimeLineDiv({ username, fname, lname, email }) {
       setShowname("");
     }
   }
+
+  const myuploads = () => {
+    props.history.push("/myuploads");
+  };
 
   return (
     <>
@@ -75,7 +78,9 @@ export default function TimeLineDiv({ username, fname, lname, email }) {
               <a href="#"> Pets</a>
             </li>
             <li>
-              <a href="#">My Uploads </a>
+              <a onClick={myuploads} href="javascript:void(0)">
+                My Uploads{" "}
+              </a>
             </li>
           </ul>
         </div>
@@ -83,3 +88,5 @@ export default function TimeLineDiv({ username, fname, lname, email }) {
     </>
   );
 }
+
+export default withRouter(TimeLineDiv);

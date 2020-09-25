@@ -13,6 +13,7 @@ export default function Timeline(props) {
 
   const [posts, setposts] = useState([]);
 
+  //* To get the data of user
   useEffect(() => {
     APICaller("post", "/dashboard/getData", { username: localStorage.userName })
       .then((res) => {
@@ -23,6 +24,7 @@ export default function Timeline(props) {
       });
   }, []);
 
+  //* To get all the post(s)
   useEffect(() => {
     APICaller("get", "/dashboard/getAllPost")
       .then((res) => {

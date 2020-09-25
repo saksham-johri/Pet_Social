@@ -3,7 +3,6 @@ import React from "react";
 export default function Footer() {
   return (
     <>
-      <div className="clear" />
       <div className="footr">
         <div className="footr_lft">
           <div className="footer_div1">
