@@ -7,8 +7,9 @@ import Featured from "../../components/Featured";
 import Comment from "../../components/Comment";
 import AddComment from "../../components/AddComment";
 import APICaller from "../../util/APICaller";
+import { withRouter } from "react-router-dom";
 
-export default function SinglePost(props) {
+function SinglePost(props) {
   const [post, setPost] = useState();
   const [numOfLikes, setNumOfLikes] = useState();
   const [liked, setLiked] = useState();
@@ -139,9 +140,13 @@ export default function SinglePost(props) {
                 </div>
                 <div className="contnt_3">
                   <ul>
-                    <Comment />
+                    {post.comment.length &&
+                      post.comment.map((comment) => (
+                        <Comment content={comment} />
+                      ))}
+                    {/* <Comment /> */}
 
-                    <AddComment />
+                    <AddComment id={post._id} />
                   </ul>
                   <div className="view_div">
                     <a href="#">View more</a>
@@ -155,3 +160,5 @@ export default function SinglePost(props) {
     );
   } else return <div />;
 }
+
+export default withRouter(SinglePost);

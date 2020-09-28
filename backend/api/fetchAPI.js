@@ -71,4 +71,26 @@ module.exports = {
       }
     });
   },
+
+  addcomment: ({ id, ...data }) => {
+    return new Promise((resolve, reject) => {
+      postdb.updateOne(
+        { _id: id },
+        {
+          $push: {
+            comment: {
+              username: data.username,
+              comment: data.comment,
+              reply: "",
+              commentedOn: Date.now(),
+            },
+          },
+        },
+        (err, result) => {
+          if (err) reject(err);
+          resolve(result);
+        }
+      );
+    });
+  },
 };

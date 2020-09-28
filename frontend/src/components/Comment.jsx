@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 
-export default function Comment() {
+export default function Comment(props) {
   const [replyState, changeReplyState] = useState("");
-
+  var da = new Date(props.content.commentedOn);
+  var date = `${da.getDate()} / ${da.getMonth() + 1} / ${da.getFullYear()} `;
+  var time = `${da.getHours()}:${da.getMinutes()}`;
   return (
     <>
       <li>
+        <div>{date}</div>
+        <div style={{ float: "right" , marginRight: '2em'}}>{time}</div>
         <div className="list_image">
           <div className="image_sec">
             <img src="/images/post_img.png" />
           </div>
-          <div className="image_name">Bharat</div>
+          <div className="image_name">{props.content.username}</div>
         </div>
-        <div className="list_info">
-          This is an example of a comment. You can create as many comments like
-          this one or sub comments as you like and manage all of your content
-          inside your Account.
-        </div>
+        <div className="list_info">{props.content.comment}</div>
         <input
           onClick={() =>
             changeReplyState(() => {

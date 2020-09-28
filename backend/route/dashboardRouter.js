@@ -6,9 +6,11 @@ const {
   getUserPost,
   getPost,
   like_unlike,
+  addcomment,
 } = require("../api/fetchAPI");
 var router = express.Router();
 var multer = require("multer");
+
 var date_store;
 // SET STORAGE
 var storage = multer.diskStorage({
@@ -90,6 +92,16 @@ router.post("/likeUnlike", async (req, res) => {
     res.send("Done!!");
   } catch (e) {
     console.log(e);
+    res.send(e);
+  }
+});
+
+router.post("/addcomment", async (req, res) => {
+  // console.log(req.body);
+  try {
+    let result = await addcomment(req.body);
+    res.send(result);
+  } catch (e) {
     res.send(e);
   }
 });
