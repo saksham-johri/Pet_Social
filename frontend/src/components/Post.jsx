@@ -1,23 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
+import APICaller from "../util/APICaller";
 
 function Post(props) {
   const title = props.content.description;
   const user = props.content.username;
-  const numOfLikes = 0;
-  const numOfComments = 4;
+  const numOfComments = props.content.comment.length;
   const categ = props.content.category;
   const img = require(`../../../backend/uploads/${props.content.filename}`);
   const date = props.content.date;
 
-  // console.log(props.content._id);
+  const [numOfLikes, setNumOfLikes] = useState(props.content.like.length);
+
+  const [liked, setLiked] = useState(() => {
+    return props.content.like.includes(localStorage.userName) ? true : false;
+  });
 
   const openPost = () => {
     props.history.push(`/post/${props.content._id}`, {
       id: `${props.content._id}`,
     });
-    //${props.content._id}
-    // console.log("Hi");
+  };
+
+  const like = () => {
+    if (liked) {
+      APICaller("post", `/dashboard/likeUnlike`, {
+        id: props.content._id,
+        username: localStorage.userName,
+        like_unlike: "unlike",
+      })
+        .then((res) => {
+          setNumOfLikes(numOfLikes - 1);
+          setLiked(false);
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log("ERROR in Post : ", err);
+        });
+    } else {
+      APICaller("post", `/dashboard/likeUnlike`, {
+        id: props.content._id,
+        username: localStorage.userName,
+        like_unlike: "like",
+      })
+        .then((res) => {
+          setNumOfLikes(numOfLikes + 1);
+          setLiked(true);
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log("ERROR in Post : ", err);
+        });
+    }
   };
 
   return (
@@ -61,12 +95,12 @@ function Post(props) {
                     Flag
                   </a>
                 </li>
-                <li onClick={openPost}>
+                <li onClick={like}>
                   <a href="javascript:void(0)">
                     <span className="btn_icon">
                       <img src="/images/icon_003.png" alt="share" />
                     </span>
-                    {numOfLikes} Likes
+                    {numOfLikes} {liked ? "Unlike" : "Like"}
                   </a>
                 </li>
                 <li onClick={openPost}>

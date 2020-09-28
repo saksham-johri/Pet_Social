@@ -1,5 +1,6 @@
 var userdb = require("../db/user_schema");
 var postdb = require("../db/post_schema");
+const { resolve } = require("path");
 
 module.exports = {
   fullInfo: (user) => {
@@ -44,6 +45,30 @@ module.exports = {
         if (err) reject(err);
         resolve(result);
       });
+    });
+  },
+
+  like_unlike: ({ id, username, like_unlike }) => {
+    return new Promise((resolve, reject) => {
+      if (like_unlike === "like") {
+        postdb.updateOne(
+          { _id: id },
+          { $push: { like: username } },
+          (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+          }
+        );
+      } else {
+        postdb.updateOne(
+          { _id: id },
+          { $pull: { like: username } },
+          (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+          }
+        );
+      }
     });
   },
 };

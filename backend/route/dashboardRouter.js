@@ -5,6 +5,7 @@ const {
   getAllPost,
   getUserPost,
   getPost,
+  like_unlike,
 } = require("../api/fetchAPI");
 var router = express.Router();
 var multer = require("multer");
@@ -78,6 +79,17 @@ router.get("/post/:id", async (req, res) => {
     let result = await getPost(req.params.id);
     res.send(result);
   } catch (e) {
+    res.send(e);
+  }
+});
+
+router.post("/likeUnlike", async (req, res) => {
+  try {
+    let result = await like_unlike(req.body);
+    console.log(result);
+    res.send("Done!!");
+  } catch (e) {
+    console.log(e);
     res.send(e);
   }
 });

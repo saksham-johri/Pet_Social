@@ -9,16 +9,54 @@ import AddComment from "../../components/AddComment";
 import APICaller from "../../util/APICaller";
 
 export default function SinglePost(props) {
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState();
+  const [numOfLikes, setNumOfLikes] = useState();
+  const [liked, setLiked] = useState();
+
   useEffect(() => {
     APICaller("get", `/dashboard/post/${props.location.state.id}`)
       .then((res) => {
         setPost(res[0]);
+        setNumOfLikes(res[0].like.length);
+        setLiked(() => {
+          return res[0].like.includes(localStorage.userName) ? true : false;
+        });
       })
       .catch((err) => {
         console.log("ERROR!!", err);
       });
   }, []);
+
+  const like = () => {
+    if (liked) {
+      APICaller("post", `/dashboard/likeUnlike`, {
+        id: post._id,
+        username: localStorage.userName,
+        like_unlike: "unlike",
+      })
+        .then((res) => {
+          setNumOfLikes(numOfLikes - 1);
+          setLiked(false);
+        })
+        .catch((err) => {
+          console.log("ERROR in Post : ", err);
+        });
+    } else {
+      APICaller("post", `/dashboard/likeUnlike`, {
+        id: post._id,
+        username: localStorage.userName,
+        like_unlike: "like",
+      })
+        .then((res) => {
+          setNumOfLikes(numOfLikes + 1);
+          setLiked(true);
+        })
+        .catch((err) => {
+          console.log("ERROR in Post : ", err);
+        });
+    }
+  };
+
   if (post && Object.keys(post).length) {
     return (
       <>
@@ -78,12 +116,12 @@ export default function SinglePost(props) {
                               Flag
                             </a>
                           </li>
-                          <li>
-                            <a href="#">
+                          <li onClick={like}>
+                            <a href="javascript:void(0)">
                               <span className="btn_icon">
                                 <img src="/images/icon_003.png" alt="share" />
                               </span>
-                              0 Likes
+                              {numOfLikes} {liked ? "Unlike" : "Like"}
                             </a>
                           </li>
                           <li>
@@ -91,7 +129,7 @@ export default function SinglePost(props) {
                               <span className="btn_icon">
                                 <img src="/images/icon_004.png" alt="share" />
                               </span>
-                              4 Comments
+                              {post.comment.length} Comments
                             </a>
                           </li>
                         </ul>
