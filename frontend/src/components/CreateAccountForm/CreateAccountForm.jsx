@@ -3,10 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 import Base from "./CreateAccountFormBase";
 
 class CreateAAccountForm extends Base {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     if (localStorage.userName) this.props.history.push("/timeline");
   }

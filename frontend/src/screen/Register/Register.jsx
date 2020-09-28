@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import CreateAccountForm from "../../components/CreateAccountForm/CreateAccountForm";
 import WelcomeToPPL from "../../components/WelcomeToPPL";
 

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-import url from "../../config";
 import APICaller from "../../util/APICaller";
 
 export default class UploadPostBtnBase extends Component {

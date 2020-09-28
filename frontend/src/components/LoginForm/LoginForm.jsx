@@ -3,10 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 import Base from "./LoginFormBase";
 
 class LoginForm extends Base {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <>

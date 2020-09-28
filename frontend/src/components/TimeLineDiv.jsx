@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import MyUploads from "../screen/MyUploads/MyUploads";
 
 function TimeLineDiv({ username, fname, lname, email, ...props }) {
   const [edit, setEdit] = useState("none");
@@ -26,7 +25,7 @@ function TimeLineDiv({ username, fname, lname, email, ...props }) {
         <div className="timeline_div1">
           <div className="profile_pic">
             <img src="/images/timeline_img1.png" />
-            <div className="profile_text">
+            <div style={{ display: edit }} className="profile_text">
               <a href="#">Change Profile Pic</a>
             </div>
           </div>
